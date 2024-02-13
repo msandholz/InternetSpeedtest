@@ -17,3 +17,30 @@ https://www.speedtest.net/api/js/servers?engine=js&https_functional=true&limit=1
         "host": "dus.wsqm.telekom-dienste.de.prod.hosts.ooklaserver.net:8080",
         "force_ping_select": 1
     }
+
+
+import speedtest
+
+st = speedtest.Speedtest(secure=True) 
+
+while True:  
+    download_speed = st.download()  
+    print('Download Speed: {:5.2f} Mb'.format(download_speed/(1024*1024) ))
+
+
+####
+
+import speedtest
+
+# Server der Telekom in Frankfurt
+server_host = "speedtest-frankfurt.telekom.de"
+
+# Speedtest durchführen
+speedtest_results = speedtest.Speedtest().get_speed(server_host)
+
+# Ergebnisse ausgeben
+print("Download-Geschwindigkeit:", speedtest_results["download"])
+print("Upload-Geschwindigkeit:", speedtest_results["upload"])
+print("Ping:", speedtest_results["ping"])
+
+
